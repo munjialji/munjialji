@@ -11,8 +11,8 @@
 #
 # This isn't perfect; it won't find every conversion issue. You break it you buy it. Viewer discretion is advised.
 
-MAPPING_FILE=C:/Users/dltkd/munjialjiClient/androidx-class-mapping.csv
-PROJECT_DIR=C:/Users/dltkd/munjialjiClient/node_modules
+MAPPING_FILE=/home/developerjosephlee97/munjialji/androidx-class-mapping.csv
+PROJECT_DIR=/home/developerjosephlee97/munjialji/node_modules
 
 replace=""
 while IFS=, read -r from to
