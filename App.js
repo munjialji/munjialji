@@ -388,5 +388,3 @@ const DrawerNavigatorExample = createDrawerNavigator({
     },
   },
 });
-
-export default createAppContainer(DrawerNavigatorExample);
