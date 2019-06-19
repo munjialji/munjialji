@@ -17,6 +17,7 @@ import { createDrawerNavigator, createStackNavigator, createAppContainer, Drawer
 import Screen1 from './pages/Screen1';
 import Screen2 from './pages/Screen2';
 import Screen3 from './pages/Screen3';
+import Bluetooth from './screens/bluetooth';
 
 class App extends Component {
   constructor(props) {
@@ -32,7 +33,7 @@ class App extends Component {
       dataSource: {},
       arduinoData_1: [10,48,52,22,8,3,18],
       arduinoData_2: [52,10,22,48,18,3,8],
-      arduinoData_3: [18,3,8,22,52,48,10]
+      arduinoData_3: [45,18,3,106,48,3,41]
     };
   }
   static navigationOptions = {
@@ -408,28 +409,48 @@ const Screen3_StackNavigator = createStackNavigator({
   },
 });
 
+const Screen4_StackNavigator = createStackNavigator({
+  //All the screen from the Screen1 will be indexed here
+  First: {
+    screen: Bluetooth,
+    navigationOptions: ({ navigation }) => ({
+      title: '블루투스 설정',
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: '#0080FF',
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+
 const DrawerNavigatorExample = createDrawerNavigator({
   //Drawer Optons and indexing
   Screen1: {
     //Title
     screen: App,
     navigationOptions: {
-      drawerLabel: 'Demo Screen 1',
+      drawerLabel: '홈으로',
     },
   },
   Screen2: {
-    //Title
-    screen: Screen2_StackNavigator,
-    navigationOptions: {
-      drawerLabel: '알람 설정',
-    },
+    screen: Screen4_StackNavigator,
+    navigationOptions:{
+      drawerLabel: '아두이노 설정'
+    }
   },
   Screen3: {
     //Title
-    screen: Screen3_StackNavigator,
+    screen: Screen2_StackNavigator,
     navigationOptions: {
-      drawerLabel: 'Demo Screen 3',
+      drawerLabel: '알림 설정',
     },
+  },
+  Screen4: {
+    screen: Screen2_StackNavigator,
+    navigationOptions:{
+      drawerLabel: '공유'
+    }
   },
 },
 {
